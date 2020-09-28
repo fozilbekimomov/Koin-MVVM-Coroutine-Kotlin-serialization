@@ -1,4 +1,4 @@
-package uz.fozilbekimomov.koinmvvmcoroutine.ui.home
+package uz.fozilbekimomov.koinmvvmcoroutine.ui.movieList
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -15,7 +15,7 @@ import uz.fozilbekimomov.koinmvvmcoroutine.core.utils.DataState
  */
 
 
-interface HomeContract {
+interface MoveListContract {
 
     interface View {
         val movieObserver: Observer<DataState>
@@ -25,10 +25,9 @@ interface HomeContract {
 
     interface VM {
         val moviesLiveData: LiveData<DataState>
-
         fun loadPopularMovie()
 
-        fun loadNowPlayingMovies()
+        fun loadNowPlayinMovies()
 
         fun loadTopRated()
 

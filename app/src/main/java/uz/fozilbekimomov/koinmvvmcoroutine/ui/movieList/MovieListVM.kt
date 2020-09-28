@@ -1,4 +1,4 @@
-package uz.fozilbekimomov.koinmvvmcoroutine.ui.home
+package uz.fozilbekimomov.koinmvvmcoroutine.ui.movieList
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -21,7 +21,9 @@ import uz.fozilbekimomov.koinmvvmcoroutine.core.utils.Event
  */
 
 
-class HomeVM(private var homeServices: HomeServices) : ViewModel(), HomeContract.VM {
+class MovieListVM(private var homeServices: HomeServices) : ViewModel(), MoveListContract.VM {
+
+    private var page=1
 
     private val _moviesLiveData = MutableLiveData<DataState>()
     override val moviesLiveData: LiveData<DataState>
@@ -31,9 +33,10 @@ class HomeVM(private var homeServices: HomeServices) : ViewModel(), HomeContract
         viewModelScope.launch {
             runCatching {
                 emitUiState(true)
-                homeServices.getPopularMovies(1)
+                homeServices.getPopularMovies(page)
             }.onSuccess {
                 val homeData=HomeData(0,"Most Popular",it.movies)
+                page++
                 emitUiState(movies = Event(homeData))
             }.onFailure {
                 emitUiState(error = Event(it.toString()))
@@ -41,13 +44,14 @@ class HomeVM(private var homeServices: HomeServices) : ViewModel(), HomeContract
         }
     }
 
-    override fun loadNowPlayingMovies() {
+    override fun loadNowPlayinMovies() {
         viewModelScope.launch {
             runCatching {
                 emitUiState(true)
-                homeServices.getNowPlayingMovies(1)
+                homeServices.getNowPlayingMovies(page)
             }.onSuccess {
                 val homeData=HomeData(1,"Now Playing",it.movies)
+                page++
                 emitUiState(movies = Event(homeData))
             }.onFailure {
                 emitUiState(error = Event(it.toString()))
@@ -59,9 +63,10 @@ class HomeVM(private var homeServices: HomeServices) : ViewModel(), HomeContract
         viewModelScope.launch {
             runCatching {
                 emitUiState(true)
-                homeServices.getTopRatedMovies(1)
+                homeServices.getTopRatedMovies(page)
             }.onSuccess {
                 val homeData=HomeData(2,"Top Rated",it.movies)
+                page++
                 emitUiState(movies = Event(homeData))
             }.onFailure {
                 emitUiState(error = Event(it.toString()))
@@ -73,10 +78,11 @@ class HomeVM(private var homeServices: HomeServices) : ViewModel(), HomeContract
         viewModelScope.launch {
             runCatching {
                 emitUiState(true)
-                homeServices.getUpcomingMovies(1)
+                homeServices.getUpcomingMovies(page)
             }.onSuccess {
                 val homeData=HomeData(3,"Upcoming Movies",it.movies)
                 emitUiState(movies = Event(homeData))
+                page++
             }.onFailure {
                 emitUiState(error = Event(it.toString()))
             }

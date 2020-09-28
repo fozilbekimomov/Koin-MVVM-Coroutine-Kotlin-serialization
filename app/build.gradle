@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "uz.fozilbekimomov.koinmvvmcoroutine"
-        minSdkVersion 17
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -87,6 +87,12 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
 
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    //    PercentageChartView
+    implementation 'com.ramijemli.percentagechartview:percentagechartview:0.3.1'
+
+    //    ProgressViews
+    implementation 'com.zekapp.library:progreswheelview:1.1.5'
 
 
     testImplementation 'junit:junit:4.12'

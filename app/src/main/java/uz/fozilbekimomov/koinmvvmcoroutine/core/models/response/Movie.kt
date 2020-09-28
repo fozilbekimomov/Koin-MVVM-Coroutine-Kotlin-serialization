@@ -16,7 +16,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Movie (
     @SerialName("id") val id:Long,
-    @SerialName("vote_average") val vote: Float,
+    @SerialName("vote_average") val vote: Float?,
     @SerialName("title") val movieTitle: String,
     @SerialName("original_title") val originalTitle: String,
     @SerialName("poster_path") val posterPath: String,

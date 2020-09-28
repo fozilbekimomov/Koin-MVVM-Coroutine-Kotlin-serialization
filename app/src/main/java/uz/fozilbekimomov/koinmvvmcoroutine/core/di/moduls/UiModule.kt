@@ -3,6 +3,7 @@ package uz.fozilbekimomov.koinmvvmcoroutine.core.di.moduls
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import uz.fozilbekimomov.koinmvvmcoroutine.ui.home.HomeVM
+import uz.fozilbekimomov.koinmvvmcoroutine.ui.movieList.MovieListVM
 
 
 /**
@@ -17,5 +18,9 @@ import uz.fozilbekimomov.koinmvvmcoroutine.ui.home.HomeVM
 val uiModule = module {
     viewModel {
         HomeVM(get())
+    }
+
+    viewModel {
+        MovieListVM(get())
     }
 }
