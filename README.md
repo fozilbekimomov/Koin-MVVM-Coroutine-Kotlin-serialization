@@ -18,5 +18,6 @@
 *   Material design.
 
 ## Muqova
-- **Developer**: [Fozilbek Imomov]( [![Gmail](https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x.png)](mailto:fozilbekimomov@gmail.com?Subject=Hello%20Fozilbek%20Imomov))
+- **Developer**: Fozilbek Imomov
+- ([![Gmail](https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x.png)](https://mailto:fozilbekimomov@gmail.com?Subject=Hello%20Fozilbek%20Imomov))
 
